@@ -2,7 +2,7 @@
 title: My Writeup Groove
 ---
 
-![]()
+![](./assets/hero-section-img.png)
 
 > Rage against the machine 
 
