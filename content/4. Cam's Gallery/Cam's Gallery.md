@@ -1,3 +1,0 @@
----
-title: Cam's Gallery
----
