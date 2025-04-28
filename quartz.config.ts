@@ -77,7 +77,6 @@ const config: QuartzConfig = {
     filters: [Plugin.RemoveDrafts()],
     emitters: [
       CustomOgImages({
-        colorScheme: "darkMode",
         
       }),
 
