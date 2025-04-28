@@ -1,6 +1,5 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
-import { CustomOgImages } from "./quartz/plugins/emitters/ogImage"
 
 /**
  * Quartz 4 Configuration
@@ -76,12 +75,7 @@ const config: QuartzConfig = {
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
-      CustomOgImages({
-        
-      }),
-
-
-      Plugin.AliasRedirects(),
+        Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
       Plugin.FolderPage(),
