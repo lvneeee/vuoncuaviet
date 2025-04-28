@@ -2,7 +2,7 @@
 title: Cam's Gallery
 ---
 
-## 📸 Cam's Photo Gallery
+## 📸 
 
 > 👉 "She doesn't take good photos, but she enjoys taking pictures, and that's enough."
 
