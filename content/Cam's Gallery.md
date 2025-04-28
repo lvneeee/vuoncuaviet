@@ -6,7 +6,7 @@ title: Cam's Gallery
 
 > 👉 "She doesn't take good photos, but she enjoys taking pictures, and that's enough."
 
-<div style="display: grid; grid-template-columns: repeat(8, minmax(90px, 1fr)); gap:8px 8px;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(20px, 1fr)); gap:8px 8px; padding: 10px;">
     <div style="grid-area: 1 / 1 / 4 / 3;">
     <img src="./assets/testImg/494324914_1612674296060152_7346100477500702744_n.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
   </div>
