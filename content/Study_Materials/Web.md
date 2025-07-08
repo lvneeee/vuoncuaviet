@@ -1,5 +1,5 @@
 ---
-title: Practice Sites
+title: "Practice Sites"
 ---
 
 ## 📊 Practice Sites for Data Analysis and Visualization

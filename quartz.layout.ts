@@ -8,8 +8,10 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/lvneeee",
+      Instargram: "https://www.instagram.com/viet.tin.bank/",
+      Kaggle: "https://www.kaggle.com/lvneeee",
+      Email: "mailto: leviethocdata@gmail.com"
     },
   }),
 }
@@ -38,7 +40,23 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
+    Component.Explorer({
+      // Mảng customOrder chứa tên gốc các thư mục con trong content (có số thứ tự)
+      sortFn: (a, b) => {
+        const customOrder = [
+          "Knowledge Garden",
+          "Study_Materials",
+          "Random_Things"
+        ];
+        const idxA = customOrder.indexOf(a.displayName);
+        const idxB = customOrder.indexOf(b.displayName);
+        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName);
+        if (idxA === -1) return 1;
+        if (idxB === -1) return -1;
+        return idxA - idxB;
+      },
+    }),
   ],
   right: [
     Component.Graph(),
@@ -62,7 +80,25 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
+    Component.Explorer({
+      sortFn: (a, b) => {
+        const customOrder = [
+          "1_Learning_Journey",
+          "2_Study_Materials",
+          "3_Random_Things"
+        ];
+        const idxA = customOrder.indexOf(a.displayName);
+        const idxB = customOrder.indexOf(b.displayName);
+        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName);
+        if (idxA === -1) return 1;
+        if (idxB === -1) return -1;
+        return idxA - idxB;
+      },
+      mapFn: (node) => {
+        node.displayName = node.displayName.replace(/^\d+_/, "");
+      },
+    }),
   ],
   right: [],
 }
