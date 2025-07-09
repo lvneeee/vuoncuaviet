@@ -5,7 +5,7 @@ tag:
   - Beginner
 ---
 
-> After getting comfortable with `SELECT`, `FROM`, and `WHERE`, I started wondering: "How can I not only retrieve data, but also analyze, summarize, and extract insights from thousands of rows?" That's when I discovered GROUP BY – the tool that transforms raw data into meaningful statistics!
+> After getting comfortable with [`SELECT`](SELECT_and_FROM),[`FROM`](SELECT_and_FROM) and [`WHERE`](WHERE), I started wondering: "How can I not only retrieve data, but also analyze, summarize, and extract insights from thousands of rows?" That's when I discovered `GROUP BY` – the tool that transforms raw data into meaningful statistics!
 
 ---
 
@@ -59,14 +59,6 @@ FROM sales
 GROUP BY store_name;
 ```
 
-> **Result:**
->
-> | store_name | total_revenue |
-> | ---------- | ------------- |
-> | Store A    | 245,000       |
-> | Store B    | 198,500       |
-> | Store C    | 167,800       |
-
 ### **Example 2: Number of orders by month**
 
 ```sql
@@ -75,14 +67,6 @@ FROM orders
 WHERE YEAR(order_date) = 2024
 GROUP BY MONTH(order_date);
 ```
-
-> **Result:**
->
-> | Month | Total Orders |
-> | ----- | ------------ |
-> | 1     | 1,250        |
-> | 2     | 1,180        |
-> | 3     | 1,420        |
 
 ### **Example 3: Customer behavior analysis**
 
@@ -102,7 +86,7 @@ GROUP BY product_name;
 
 ---
 
-## Combining WHERE and GROUP BY
+## Combining `WHERE` and `GROUP BY`
 
 ```sql
 SELECT store_name, SUM(sales_amount) AS q4_revenue
