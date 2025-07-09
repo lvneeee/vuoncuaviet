@@ -9,19 +9,19 @@ tag:
 
 ---
 
-## Why is GROUP BY important?
+## Why is `GROUP BY` important?
 
-Before, I only knew how to filter data with WHERE, but when I needed to answer questions like:
+Before, I only knew how to filter data with `WHERE`, but when I needed to answer questions like:
 
 - **Which store has the highest sales?**
 - **Which month has the most orders?**
 - **Which product is bought the most?**
 
-...GROUP BY became my "weapon" for summarizing and analyzing data!
+`GROUP BY` became my "weapon" for summarizing and analyzing data!
 
 ---
 
-## Basic GROUP BY Syntax
+## Basic `GROUP BY` Syntax
 
 ```sql
 SELECT column1, AGG_FUNC(column2)
