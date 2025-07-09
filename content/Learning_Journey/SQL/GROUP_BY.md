@@ -26,7 +26,7 @@ Before, I only knew how to filter data with `WHERE`, but when I needed to answer
 ```sql
 SELECT column1, AGG_FUNC(column2)
 FROM table_name
-[WHERE condition]
+WHERE condition
 GROUP BY column1;
 ```
 
