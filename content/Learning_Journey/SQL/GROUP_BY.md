@@ -101,7 +101,7 @@ GROUP BY store_name;
 
 ---
 
-##  Advanced Examples
+## Advanced Examples
 
 ### Multi-Dimensional Analysis
 
@@ -149,8 +149,6 @@ GROUP BY employee_name, MONTH(sale_date);
 - All columns in SELECT (except aggregate functions) must be in GROUP BY
 - Use WHERE only to filter data before grouping
 - Create indexes for columns frequently used in GROUP BY to improve performance
-
----
 
 ---
 
@@ -252,7 +250,6 @@ GROUP BY category;
 - [x] Top 10 products with highest profit
 
 ---
-
 
 ### **Exercise 1: Monthly Sales Trend Analysis**
 
