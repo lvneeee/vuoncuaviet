@@ -1,5 +1,8 @@
 ---
 title: "My First SQL Concepts: SELECT and FROM"
+tag: 
+    - SQL
+    - Beginner
 ---
 
 > Every SQL query starts with two fundamental components: `SELECT` and `FROM`. Think of it like asking a librarian: "I want to see (`SELECT`) specific information from (`FROM`) this particular book (`TABLE`)."
@@ -88,21 +91,13 @@ To solidify my understanding, I practiced these queries multiple times, each tim
 | **Column name precision**  | Database column names must match exactly (case-sensitive in some systems) |
 | **Results interpretation** | Understanding what the output tells me about the business                 |
 
-## Exercise set I completed
-
-- [x] Retrieved order numbers and dates from sales transactions
-- [x] Pulled customer demographics (name, gender, city)
-- [x] Listed product information (name, brand, color)
-- [x] Explored complete store information
-- [x] Focused on specific store metrics (store ID and size)
-
 ---
 
 ## Mistakes I Made and Lessons Learned
 
 ### Common Errors I Encountered:
 
-#### **1. Missing commas between column names**
+#### **Missing commas between column names**
 
 ```sql
 -- ❌ Error:
@@ -112,11 +107,11 @@ SELECT order_number order_date FROM sales;
 SELECT order_number, order_date FROM sales;
 ```
 
-#### **2. Forgetting the semicolon**
+#### **Forgetting the semicolon**
 
 While not always required, it's good practice and prevents errors in complex queries
 
-#### **3. Misspelling column names**
+#### **Misspelling column names**
 
 Databases are unforgiving with typos. I learned to double-check column names before running queries.
 
@@ -126,3 +121,13 @@ Databases are unforgiving with typos. I learned to double-check column names bef
 > **Practice consistently**: Muscle memory for syntax comes with repetition  
 > **Understand your data**: Know your table structure before writing queries  
 > **Be specific**: Only SELECT the columns you actually need
+
+---
+## Exercise set I completed
+
+- [x] Retrieved order numbers and dates from sales transactions
+- [x] Pulled customer demographics (name, gender, city)
+- [x] Listed product information (name, brand, color)
+- [x] Explored complete store information
+- [x] Focused on specific store metrics (store ID and size)
+
