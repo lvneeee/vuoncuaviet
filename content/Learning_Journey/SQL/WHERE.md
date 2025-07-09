@@ -4,6 +4,7 @@ tag:
   - SQL
   - Beginner
   - Data Filtering
+  - Condition
 ---
 
 > After mastering [the basics statements](SELECT_and_FROM), I'm excited to dive into what makes SQL truly powerful - the `WHERE` clause! Today I discovered how to filter data based on specific conditions, transforming SQL from a simple data retrieval tool into a precise analytical instrument.
@@ -114,6 +115,7 @@ WHERE name LIKE '%John%';
 ```
 
 **Pattern I learned:**
+
 - `%` = any number of characters
 - `_` = exactly one character
 
@@ -164,7 +166,7 @@ WHERE NOT brand = 'Nike';
 ```sql
 SELECT order_number, quantity, order_date
 FROM sales
-WHERE (quantity > 10 OR total_amount > 500) 
+WHERE (quantity > 10 OR total_amount > 500)
   AND order_date >= '2023-06-01';
 ```
 
@@ -175,6 +177,7 @@ WHERE (quantity > 10 OR total_amount > 500)
 ## Common Mistakes I Made (So You Don't Have To!)
 
 ### **Wrong quote usage**
+
 ```sql
 -- ❌ Wrong:
 WHERE quantity > '5'
@@ -184,6 +187,7 @@ WHERE quantity > 5
 ```
 
 ### **Case sensitivity confusion**
+
 ```sql
 -- ❌ Might not work:
 WHERE country = 'vietnam'
@@ -195,6 +199,7 @@ WHERE UPPER(country) = 'VIETNAM'
 ```
 
 ### **Forgetting parentheses in complex conditions**
+
 ```sql
 -- ❌ Confusing logic:
 WHERE brand = 'Nike' OR brand = 'Adidas' AND price > 100
@@ -208,18 +213,21 @@ WHERE (brand = 'Nike' OR brand = 'Adidas') AND price > 100
 ## Exercises set I completed
 
 ### **Exercise Set 1: Basic Filtering**
+
 - [x] Found all customers from specific cities
 - [x] Filtered products by price ranges
 - [x] Identified orders from recent months
 - [x] Located high-quantity transactions
 
 ### **Exercise Set 2: Advanced Filtering**
+
 - [x] Combined multiple conditions with AND/OR
 - [x] Used BETWEEN for date ranges
 - [x] Applied LIKE for pattern matching
 - [x] Practiced IN for multiple values
 
 ### **Exercise Set 3: Real-World Scenarios**
+
 - [x] Market analysis by region
 - [x] Product performance by brand
 - [x] Customer segmentation by demographics

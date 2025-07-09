@@ -1,8 +1,10 @@
 ---
 title: "My First SQL Concepts: SELECT and FROM"
-tag: 
-    - SQL
-    - Beginner
+tag:
+  - SQL
+  - Beginner
+  - Query
+  - Syntax
 ---
 
 > Every SQL query starts with two fundamental components: `SELECT` and `FROM`. Think of it like asking a librarian: "I want to see (`SELECT`) specific information from (`FROM`) this particular book (`TABLE`)."
