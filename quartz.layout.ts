@@ -44,6 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
       sortFn: (a, b) => {
         // custom order của folder gốc
         const rootOrder = ["Knowledge_Garden", "Study_Materials", "Random_Things"]
+        
         // custom order của folder con trong knowledge garden
         const kgOrder = ["SQL", "R", "Python", "Excel", "Visualization", "Statistic Basic"]
 
@@ -66,10 +67,8 @@ export const defaultContentPageLayout: PageLayout = {
 
         // Nếu là folder con trong knowledge garden thì sort theo thứ tự của kgOrder
         if (a.slug?.startsWith("Knowledge_Garden/") && b.slug?.startsWith("Knowledge_Garden/")) {
-          const aSub = a.slug.split("/")[1]
-          const bSub = b.slug.split("/")[1]
-          const idxA = kgOrder.indexOf(aSub)
-          const idxB = kgOrder.indexOf(bSub)
+          const idxA = kgOrder.indexOf(a.displayName)
+          const idxB = kgOrder.indexOf(b.displayName)
           if (idxA !== -1 || idxB !== -1) return idxA - idxB
         }
 
@@ -107,26 +106,29 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer({
       sortFn: (a, b) => {
-        //custom order cua folder goc
+        // custom order của folder gốc
         const rootOrder = ["Knowledge_Garden", "Study_Materials", "Random_Things"]
+        // custom order của folder con trong knowledge garden
+        const kgOrder = ["SQL", "R", "Python", "Excel", "Visualization", "Statistic Basic"]
 
-        //custom order cua folder con trong knowledge garden
-        const kgOrder = ["Statistic Basic", "SQL", "R", "Python", "Excel", "Visualization"]
+        // custom order của SQL (so sánh bằng displayName)
+        const sqlOrder = [
+          "My First SQL Concepts: SELECT and FROM",
+          "WHERE Clauses: My Journey into Data Filtering",
+          "GROUP BY: From Raw Data to Meaningful Statistics"
+        ];
 
-        //custom order cua SQL
-        const sqlOrder = ["SELECT_and_FROM", "WHERE", "GROUP_BY"]
-
-        // Nếu là folder con của SQL
+        // Nếu là folder/file con của SQL
         if (
           a.slug?.startsWith("Knowledge_Garden/SQL/") &&
           b.slug?.startsWith("Knowledge_Garden/SQL/")
         ) {
-          const idxA = sqlOrder.indexOf(a.displayName)
-          const idxB = sqlOrder.indexOf(b.displayName)
-          if (idxA !== -1 || idxB !== -1) return idxA - idxB
+          const idxA = sqlOrder.indexOf(a.displayName);
+          const idxB = sqlOrder.indexOf(b.displayName);
+          if (idxA !== -1 || idxB !== -1) return idxA - idxB;
         }
 
-        // neu la folder con trong knowledge garden thi sort theo thu tu cua kgOrder
+        // Nếu là folder con trong knowledge garden thì sort theo thứ tự của kgOrder
         if (a.slug?.startsWith("Knowledge_Garden/") && b.slug?.startsWith("Knowledge_Garden/")) {
           const aSub = a.slug.split("/")[1]
           const bSub = b.slug.split("/")[1]
@@ -135,14 +137,13 @@ export const defaultListPageLayout: PageLayout = {
           if (idxA !== -1 || idxB !== -1) return idxA - idxB
         }
 
-        //neu la folder goc thi sort theo thu tu cua rootOrder
+        // Nếu là folder gốc thì sort theo thứ tự của rootOrder
         const idxA = rootOrder.indexOf(a.displayName)
         const idxB = rootOrder.indexOf(b.displayName)
         if (idxA !== -1 || idxB !== -1) return idxA - idxB
 
-        //mac dinh sort theo thu tu alphabet
-        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName)
-        return 0
+        // Mặc định sort theo thứ tự alphabet
+        return a.displayName.localeCompare(b.displayName)
       },
     }),
   ],
