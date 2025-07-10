@@ -42,7 +42,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
     Component.Explorer({
-      // Custom sort: main folders và các folder con của Knowledge Garden
+      // Custom sort: main folders và các folder con của Knowledge Garden (dùng slug)
       sortFn: (a, b) => {
         // Thứ tự các folder chính
         const customMainFolderOrder = [
@@ -51,21 +51,21 @@ export const defaultContentPageLayout: PageLayout = {
           "Random_Things"
         ];
         // Thứ tự các folder con của Knowledge Garden
-        const knowledgeGardenSubOrder = [,
-          "SQL",
-          "R",
-          "Python",
+        const knowledgeGardenSubOrder = [
+          "Learning_Journey",
           "Excel",
+          "Python",
+          "R",
+          "SQL",
           "Statistic Basic",
-          "Visualization",
+          "Visualization"
         ];
-        // Nếu là folder con của Knowledge Garden
-        // Giả sử các folder con của Knowledge Garden có tên dạng "Knowledge Garden/xxx"
+        // Nếu là folder con của Knowledge Garden (dùng slug)
         const isSubOfKnowledgeGarden = (node: any) =>
-          node.path?.startsWith?.("Knowledge_Garden/") || false;
+          node.slug && node.slug.startsWith("Knowledge_Garden/");
         if (isSubOfKnowledgeGarden(a) && isSubOfKnowledgeGarden(b)) {
-          const aSub = a.displayName;
-          const bSub = b.displayName;
+          const aSub = a.slug.split("/")[1] || a.displayName;
+          const bSub = b.slug.split("/")[1] || b.displayName;
           const idxA = knowledgeGardenSubOrder.indexOf(aSub);
           const idxB = knowledgeGardenSubOrder.indexOf(bSub);
           if (idxA === -1 && idxB === -1) return aSub.localeCompare(bSub);
