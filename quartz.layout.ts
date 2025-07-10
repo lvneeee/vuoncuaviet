@@ -40,21 +40,46 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
     Component.Explorer({
-      // Mảng customOrder chứa tên gốc các thư mục con trong content (có số thứ tự)
       sortFn: (a, b) => {
-        const customMainFolderOrder = [
-          "Knowledge Garden", 
-          "Study_Materials", 
-          "Random_Things"
-        ]
-        const idxA = customMainFolderOrder.indexOf(a.displayName)
-        const idxB = customMainFolderOrder.indexOf(b.displayName)
-        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName)
-        if (idxA === -1) return 1
-        if (idxB === -1) return -1
-        return idxA - idxB
+        // custom order của folder gốc
+        const rootOrder = ["Knowledge_Garden", "Study_Materials", "Random_Things"]
+        // custom order của folder con trong knowledge garden
+        const kgOrder = ["SQL", "R", "Python", "Excel", "Visualization", "Statistic Basic"]
+
+        // custom order của SQL (so sánh bằng displayName)
+        const sqlOrder = [
+          "My First SQL Concepts: SELECT and FROM",
+          "WHERE Clauses: My Journey into Data Filtering",
+          "GROUP BY: From Raw Data to Meaningful Statistics"
+        ];
+
+        // Nếu là folder/file con của SQL
+        if (
+          a.slug?.startsWith("Knowledge_Garden/SQL/") &&
+          b.slug?.startsWith("Knowledge_Garden/SQL/")
+        ) {
+          const idxA = sqlOrder.indexOf(a.displayName);
+          const idxB = sqlOrder.indexOf(b.displayName);
+          if (idxA !== -1 || idxB !== -1) return idxA - idxB;
+        }
+
+        // Nếu là folder con trong knowledge garden thì sort theo thứ tự của kgOrder
+        if (a.slug?.startsWith("Knowledge_Garden/") && b.slug?.startsWith("Knowledge_Garden/")) {
+          const aSub = a.slug.split("/")[1]
+          const bSub = b.slug.split("/")[1]
+          const idxA = kgOrder.indexOf(aSub)
+          const idxB = kgOrder.indexOf(bSub)
+          if (idxA !== -1 || idxB !== -1) return idxA - idxB
+        }
+
+        // Nếu là folder gốc thì sort theo thứ tự của rootOrder
+        const idxA = rootOrder.indexOf(a.displayName)
+        const idxB = rootOrder.indexOf(b.displayName)
+        if (idxA !== -1 || idxB !== -1) return idxA - idxB
+
+        // Mặc định sort theo thứ tự alphabet
+        return a.displayName.localeCompare(b.displayName)
       },
     }),
   ],
@@ -80,23 +105,44 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
     Component.Explorer({
       sortFn: (a, b) => {
-        const customMainFolderOrder = [
-          "Knowledge Garden",
-          "Study_Materials",
-          "Random_Things"
-        ]
-        const idxA = customMainFolderOrder.indexOf(a.displayName)
-        const idxB = customMainFolderOrder.indexOf(b.displayName)
+        //custom order cua folder goc
+        const rootOrder = ["Knowledge_Garden", "Study_Materials", "Random_Things"]
+
+        //custom order cua folder con trong knowledge garden
+        const kgOrder = ["Statistic Basic", "SQL", "R", "Python", "Excel", "Visualization"]
+
+        //custom order cua SQL
+        const sqlOrder = ["SELECT_and_FROM", "WHERE", "GROUP_BY"]
+
+        // Nếu là folder con của SQL
+        if (
+          a.slug?.startsWith("Knowledge_Garden/SQL/") &&
+          b.slug?.startsWith("Knowledge_Garden/SQL/")
+        ) {
+          const idxA = sqlOrder.indexOf(a.displayName)
+          const idxB = sqlOrder.indexOf(b.displayName)
+          if (idxA !== -1 || idxB !== -1) return idxA - idxB
+        }
+
+        // neu la folder con trong knowledge garden thi sort theo thu tu cua kgOrder
+        if (a.slug?.startsWith("Knowledge_Garden/") && b.slug?.startsWith("Knowledge_Garden/")) {
+          const aSub = a.slug.split("/")[1]
+          const bSub = b.slug.split("/")[1]
+          const idxA = kgOrder.indexOf(aSub)
+          const idxB = kgOrder.indexOf(bSub)
+          if (idxA !== -1 || idxB !== -1) return idxA - idxB
+        }
+
+        //neu la folder goc thi sort theo thu tu cua rootOrder
+        const idxA = rootOrder.indexOf(a.displayName)
+        const idxB = rootOrder.indexOf(b.displayName)
+        if (idxA !== -1 || idxB !== -1) return idxA - idxB
+
+        //mac dinh sort theo thu tu alphabet
         if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName)
-        if (idxA === -1) return 1
-        if (idxB === -1) return -1
-        return idxA - idxB
-      },
-      mapFn: (node) => {
-        node.displayName = node.displayName.replace(/^\d+_/, "")
+        return 0
       },
     }),
   ],
