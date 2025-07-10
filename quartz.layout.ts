@@ -11,7 +11,7 @@ export const sharedPageComponents: SharedLayout = {
       GitHub: "https://github.com/lvneeee",
       Instargram: "https://www.instagram.com/viet.tin.bank/",
       Kaggle: "https://www.kaggle.com/lvneeee",
-      Email: "mailto: leviethocdata@gmail.com"
+      Email: "mailto: leviethocdata@gmail.com",
     },
   }),
 }
@@ -42,15 +42,40 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
     Component.Explorer({
-      // Mảng customOrder chứa tên gốc các thư mục con trong content (có số thứ tự)
+      // Custom sort: main folders và các folder con của Knowledge Garden
       sortFn: (a, b) => {
-        const customOrder = [
+        // Thứ tự các folder chính
+        const customMainFolderOrder = [
           "Knowledge Garden",
           "Study_Materials",
           "Random_Things"
         ];
-        const idxA = customOrder.indexOf(a.displayName);
-        const idxB = customOrder.indexOf(b.displayName);
+        // Thứ tự các folder con của Knowledge Garden
+        const knowledgeGardenSubOrder = [,
+          "SQL",
+          "R",
+          "Python",
+          "Excel",
+          "Statistic Basic",
+          "Visualization",
+        ];
+        // Nếu là folder con của Knowledge Garden
+        // Giả sử các folder con của Knowledge Garden có tên dạng "Knowledge Garden/xxx"
+        const isSubOfKnowledgeGarden = (node: any) =>
+          node.path?.startsWith?.("Knowledge_Garden/") || false;
+        if (isSubOfKnowledgeGarden(a) && isSubOfKnowledgeGarden(b)) {
+          const aSub = a.displayName;
+          const bSub = b.displayName;
+          const idxA = knowledgeGardenSubOrder.indexOf(aSub);
+          const idxB = knowledgeGardenSubOrder.indexOf(bSub);
+          if (idxA === -1 && idxB === -1) return aSub.localeCompare(bSub);
+          if (idxA === -1) return 1;
+          if (idxB === -1) return -1;
+          return idxA - idxB;
+        }
+        // Nếu là các folder chính
+        const idxA = customMainFolderOrder.indexOf(a.displayName);
+        const idxB = customMainFolderOrder.indexOf(b.displayName);
         if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName);
         if (idxA === -1) return 1;
         if (idxB === -1) return -1;
@@ -83,20 +108,20 @@ export const defaultListPageLayout: PageLayout = {
     // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
     Component.Explorer({
       sortFn: (a, b) => {
-        const customOrder = [
-          "1_Learning_Journey",
-          "2_Study_Materials",
-          "3_Random_Things"
-        ];
-        const idxA = customOrder.indexOf(a.displayName);
-        const idxB = customOrder.indexOf(b.displayName);
-        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName);
-        if (idxA === -1) return 1;
-        if (idxB === -1) return -1;
-        return idxA - idxB;
+        const customMainFolderOrder = [
+          "Knowledge Garden",
+          "Study_Materials",
+          "Random_Things"
+        ]
+        const idxA = customMainFolderOrder.indexOf(a.displayName)
+        const idxB = customMainFolderOrder.indexOf(b.displayName)
+        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName)
+        if (idxA === -1) return 1
+        if (idxB === -1) return -1
+        return idxA - idxB
       },
       mapFn: (node) => {
-        node.displayName = node.displayName.replace(/^\d+_/, "");
+        node.displayName = node.displayName.replace(/^\d+_/, "")
       },
     }),
   ],
