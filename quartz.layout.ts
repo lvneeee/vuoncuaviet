@@ -42,44 +42,19 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     // Custom Explorer: giữ thứ tự thư mục như hiện tại nhưng bỏ số thứ tự ở đầu tên
     Component.Explorer({
-      // Custom sort: main folders và các folder con của Knowledge Garden (dùng slug)
+      // Mảng customOrder chứa tên gốc các thư mục con trong content (có số thứ tự)
       sortFn: (a, b) => {
-        // Thứ tự các folder chính
         const customMainFolderOrder = [
-          "Knowledge Garden",
-          "Study_Materials",
+          "Knowledge Garden", 
+          "Study_Materials", 
           "Random_Things"
-        ];
-        // Thứ tự các folder con của Knowledge Garden
-        const knowledgeGardenSubOrder = [
-          "Learning_Journey",
-          "Excel",
-          "Python",
-          "R",
-          "SQL",
-          "Statistic Basic",
-          "Visualization"
-        ];
-        // Nếu là folder con của Knowledge Garden (dùng slug)
-        const isSubOfKnowledgeGarden = (node: any) =>
-          node.slug && node.slug.startsWith("Knowledge_Garden/");
-        if (isSubOfKnowledgeGarden(a) && isSubOfKnowledgeGarden(b)) {
-          const aSub = a.slug.split("/")[1] || a.displayName;
-          const bSub = b.slug.split("/")[1] || b.displayName;
-          const idxA = knowledgeGardenSubOrder.indexOf(aSub);
-          const idxB = knowledgeGardenSubOrder.indexOf(bSub);
-          if (idxA === -1 && idxB === -1) return aSub.localeCompare(bSub);
-          if (idxA === -1) return 1;
-          if (idxB === -1) return -1;
-          return idxA - idxB;
-        }
-        // Nếu là các folder chính
-        const idxA = customMainFolderOrder.indexOf(a.displayName);
-        const idxB = customMainFolderOrder.indexOf(b.displayName);
-        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName);
-        if (idxA === -1) return 1;
-        if (idxB === -1) return -1;
-        return idxA - idxB;
+        ]
+        const idxA = customMainFolderOrder.indexOf(a.displayName)
+        const idxB = customMainFolderOrder.indexOf(b.displayName)
+        if (idxA === -1 && idxB === -1) return a.displayName.localeCompare(b.displayName)
+        if (idxA === -1) return 1
+        if (idxB === -1) return -1
+        return idxA - idxB
       },
     }),
   ],
