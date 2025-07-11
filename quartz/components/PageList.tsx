@@ -58,7 +58,43 @@ type Props = {
 } & QuartzComponentProps
 
 export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort }: Props) => {
-  const sorter = sort ?? byDateAndAlphabeticalFolderFirst(cfg)
+  // Custom order ví dụ cho SQL và Knowledge Garden, có thể lấy từ config ngoài nếu muốn
+  const sqlOrder = [
+    "My First SQL Concepts: SELECT and FROM",
+    "WHERE Clauses: My Journey into Data Filtering",
+    "GROUP BY: From Raw Data to Meaningful Statistics"
+  ];
+  const kgOrder = ["SQL", "R", "Python", "Excel", "Visualization", "Statistic Basic"];
+
+  // Hàm sort ưu tiên custom order nếu có, fallback về mặc định
+  const customSorter: SortFn = (a, b) => {
+    // Nếu là file con của SQL
+    if (
+      a.frontmatter?.title &&
+      b.frontmatter?.title &&
+      sqlOrder.includes(a.frontmatter.title) &&
+      sqlOrder.includes(b.frontmatter.title)
+    ) {
+      const idxA = sqlOrder.indexOf(a.frontmatter.title)
+      const idxB = sqlOrder.indexOf(b.frontmatter.title)
+      return idxA - idxB
+    }
+    // Nếu là folder con của Knowledge Garden
+    if (
+      a.frontmatter?.title &&
+      b.frontmatter?.title &&
+      kgOrder.includes(a.frontmatter.title) &&
+      kgOrder.includes(b.frontmatter.title)
+    ) {
+      const idxA = kgOrder.indexOf(a.frontmatter.title)
+      const idxB = kgOrder.indexOf(b.frontmatter.title)
+      return idxA - idxB
+    }
+    // fallback: sort mặc định
+    return byDateAndAlphabeticalFolderFirst(cfg)(a, b)
+  }
+
+  const sorter = sort ?? customSorter
   let list = allFiles.sort(sorter)
   if (limit) {
     list = list.slice(0, limit)

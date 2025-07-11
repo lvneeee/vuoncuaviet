@@ -104,14 +104,12 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({
+    Component.Explorer(
+      {
       sortFn: (a, b) => {
-        // custom order của folder gốc
-        const rootOrder = ["Knowledge_Garden", "Study_Materials", "Random_Things"]
-        // custom order của folder con trong knowledge garden
-        const kgOrder = ["SQL", "R", "Python", "Excel", "Visualization", "Statistic Basic"]
-
-        // custom order của SQL (so sánh bằng displayName)
+        // custom order của folder con trong knowledge garden (dùng displayName)
+        const kgOrder = ["SQL", "R", "Python", "Excel", "Visualization", "Statistic Basic"];
+        // custom order của SQL (dùng displayName)
         const sqlOrder = [
           "My First SQL Concepts: SELECT and FROM",
           "WHERE Clauses: My Journey into Data Filtering",
@@ -128,24 +126,16 @@ export const defaultListPageLayout: PageLayout = {
           if (idxA !== -1 || idxB !== -1) return idxA - idxB;
         }
 
-        // Nếu là folder con trong knowledge garden thì sort theo thứ tự của kgOrder
-        if (a.slug?.startsWith("Knowledge_Garden/") && b.slug?.startsWith("Knowledge_Garden/")) {
-          const aSub = a.slug.split("/")[1]
-          const bSub = b.slug.split("/")[1]
-          const idxA = kgOrder.indexOf(aSub)
-          const idxB = kgOrder.indexOf(bSub)
-          if (idxA !== -1 || idxB !== -1) return idxA - idxB
-        }
-
-        // Nếu là folder gốc thì sort theo thứ tự của rootOrder
-        const idxA = rootOrder.indexOf(a.displayName)
-        const idxB = rootOrder.indexOf(b.displayName)
-        if (idxA !== -1 || idxB !== -1) return idxA - idxB
+        // Nếu là folder con trong knowledge garden thì sort theo thứ tự của kgOrder (dùng displayName)
+        const idxA = kgOrder.indexOf(a.displayName);
+        const idxB = kgOrder.indexOf(b.displayName);
+        if (idxA !== -1 || idxB !== -1) return idxA - idxB;
 
         // Mặc định sort theo thứ tự alphabet
-        return a.displayName.localeCompare(b.displayName)
+        return a.displayName.localeCompare(b.displayName);
       },
-    }),
+    }
+  ),
   ],
   right: [],
 }
