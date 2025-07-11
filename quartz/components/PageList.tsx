@@ -58,7 +58,7 @@ type Props = {
 } & QuartzComponentProps
 
 export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort }: Props) => {
-  // Custom order ví dụ cho SQL và Knowledge Garden, có thể lấy từ config ngoài nếu muốn
+    // Custom order ví dụ cho SQL và Knowledge Garden, có thể lấy từ config ngoài nếu muốn
   const sqlOrder = [
     "My First SQL Concepts: SELECT and FROM",
     "WHERE Clauses: My Journey into Data Filtering",

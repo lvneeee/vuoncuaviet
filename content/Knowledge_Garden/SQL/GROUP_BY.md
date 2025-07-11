@@ -6,7 +6,7 @@ tag:
   - Aggregation
 ---
 
-> After getting comfortable with [`SELECT`](SELECT_and_FROM),[`FROM`](SELECT_and_FROM) and [`WHERE`](WHERE), I started wondering: "How can I not only retrieve data, but also analyze, summarize, and extract insights from thousands of rows?" That's when I discovered `GROUP BY` – the tool that transforms raw data into meaningful statistics!
+> After getting comfortable with [SELECT](SELECT_and_FROM),[FROM](SELECT_and_FROM) and [WHERE](WHERE), I started wondering: "How can I not only retrieve data, but also analyze, summarize, and extract insights from thousands of rows?" That's when I discovered `GROUP BY` – the tool that transforms raw data into meaningful statistics!
 
 ---
 
