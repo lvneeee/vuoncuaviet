@@ -188,3 +188,7 @@ SELECT * FROM sales ORDER BY sales_amount DESC;
 -   Focus on the most important data
 -   Make reports and dashboards more useful
 -   Work efficiently with large datasets
+
+---
+
+> **Next up:** I'll learn about [GROUP BY](GROUP_BY) to summarize and aggregate data – a must-have skill for powerful SQL analysis!

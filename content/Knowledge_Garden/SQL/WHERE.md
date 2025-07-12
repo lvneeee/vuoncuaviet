@@ -232,3 +232,6 @@ WHERE (brand = 'Nike' OR brand = 'Adidas') AND price > 100
 - [x] Product performance by brand
 - [x] Customer segmentation by demographics
 - [x] Sales trends by time periods
+
+---
+> **Next up:** Ready to take your SQL skills further? Check out the next lesson: [Sorting Results with ORDER BY](ORDER_BY)

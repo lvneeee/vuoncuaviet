@@ -364,4 +364,4 @@ GROUP BY QUARTER(order_date);
 - Discover trends and compare groups
 - Create professional summary reports
 
-> **Next up:** I'll learn about JOIN to connect multiple tables – an essential skill for real-world SQL!
+> **Next up:** I'll learn about [JOIN and UNION](JOIN_UNION) to connect multiple tables – an essential skill for real-world SQL!
