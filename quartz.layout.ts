@@ -114,7 +114,8 @@ export const defaultListPageLayout: PageLayout = {
           "My First SQL Concepts: SELECT and FROM",
           "WHERE Clauses: My Journey into Data Filtering",
           "GROUP BY: From Raw Data to Meaningful Statistics",
-          "ORDER BY & TOP: Sorting and Limiting Results Like a Pro",
+          "ORDER BY & TOP: Sorting and Limiting Results",
+          "JOIN & UNION: Combining Data Like a Pro"
         ];
 
         // Nếu là folder/file con của SQL

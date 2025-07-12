@@ -1,5 +1,5 @@
 ---
-title: "ORDER BY & TOP: Sorting and Limiting Results Like a Pro"
+title: "ORDER BY & TOP: Sorting and Limiting Results"
 tag:
     - SQL
     - Beginner
