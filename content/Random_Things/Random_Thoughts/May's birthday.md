@@ -2,7 +2,7 @@
 title: Free cake day 
 ---
 
-![](../../assets/happy_birth_day.png)
+![](../../assets/happy-birth-day.png)
 
    We’re not exactly the kind of friends who talk all the time, so tbh writing this feels a bit weird, but not that weird :))))  
 But today is your birth day even if you're not really looking forward to it, I still wanted to send you a little something from the heart. Maybe you’ve had some birthdays in the past that didn’t feel all that great, so this day just feels a bit off sometimes, and that’s totally okay.
