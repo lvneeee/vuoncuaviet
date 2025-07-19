@@ -2,8 +2,6 @@
 title: Free cake day 
 ---
 
-![](../../assets/happy-birth-day.png)
-
    We’re not exactly the kind of friends who talk all the time, so tbh writing this feels a bit weird, but not that weird :))))  
 But today is your birth day even if you're not really looking forward to it, I still wanted to send you a little something from the heart. Maybe you’ve had some birthdays in the past that didn’t feel all that great, so this day just feels a bit off sometimes, and that’s totally okay.
 You might not even realize it, but your friendly and genuine vibe (and your kinda cute "đọc hiểu" moments) actually makes us feel really chill and comfortable aroundyou_._, like we’re at home.   
