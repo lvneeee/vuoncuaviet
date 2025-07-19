@@ -10,4 +10,4 @@ Anyway, I’m still here, and so is the rest of us, always here if you ever need
 Hope to see Mây sometime soon, in real life, of course :)))))
 Happy Birthday!
 
-![](quartz\content\assets\happy_birth_day.png)
+![](../../assets/happy_birth_day.png)
