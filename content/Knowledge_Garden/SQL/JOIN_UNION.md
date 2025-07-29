@@ -11,7 +11,8 @@ tag:
 
 ---
 
-## Why are JOIN and UNION important?
+
+# Why are JOIN and UNION important?
 
 Previously, I could only work with individual tables. But what if I want to:
 - Get order details along with customer names?
@@ -23,7 +24,7 @@ JOIN and UNION help me connect the pieces of data together for a more complete v
 
 ---
 
-## Basic Syntax
+# Basic Syntax
 
 ### JOIN – Combine data by columns
 ```sql
@@ -41,7 +42,9 @@ SELECT column1, column2 FROM table_B;
 
 ---
 
-## Common JOIN Types & Real-World Examples
+# Real-world Example
+
+## Common JOIN Types
 
 ### INNER JOIN – Only matching data
 ```sql
@@ -80,8 +83,6 @@ INNER JOIN order_details od ON o.order_id = od.order_id
 INNER JOIN products p ON od.product_id = p.product_id;
 ```
 
----
-
 ## UNION vs UNION ALL: The Key Difference
 
 ### UNION – Removes duplicate rows
@@ -116,21 +117,7 @@ LIMIT 5;
 
 ---
 
-## Notes when using JOIN & UNION
-
-### With JOIN:
-- Always check the ON condition to avoid incorrect results
-- Use aliases (A, B) for better readability
-- Be mindful of performance when joining large tables
-
-### With UNION:
-- All queries must have the same number of columns
-- Column data types must be compatible
-- Column names are taken from the first query
-
----
-
-## Common mistakes I made (and how to fix them)
+# Common mistakes and how to fix them
 
 ### Forgetting the ON condition in JOIN
 ```sql
@@ -173,21 +160,35 @@ INNER JOIN customers c ON s.customer_key = c.customer_key;
 
 ---
 
-## Exercises I practiced
-- [x] Get order details with customer names
-- [x] Merge sales data from two years
-- [x] JOIN 3 tables: orders, customers, products
-- [x] Compare UNION vs UNION ALL
-- [x] Create summary reports from multiple sources
+# Note when using JOIN & UNION
+
+## With JOIN:
+- Always check the ON condition to avoid incorrect results
+- Use aliases (A, B) for better readability
+- Be mindful of performance when joining large tables
+
+## With UNION:
+- All queries must have the same number of columns
+- Column data types must be compatible
+- Column names are taken from the first query
 
 ---
 
-## Conclusion & Key Takeaways
+# Conclusion & Key Takeaways
 
 **JOIN** and **UNION** help me:
 - Combine data from multiple tables flexibly
 - Create complex and detailed reports
 - Work efficiently with relational databases
 - Greatly expand my data analysis capabilities
+
+---
+
+# Exercises I practiced
+- [x] Get order details with customer names
+- [x] Merge sales data from two years
+- [x] JOIN 3 tables: orders, customers, products
+- [x] Compare UNION vs UNION ALL
+- [x] Create summary reports from multiple sources
 
 > **Next up:** I'll dive deeper into advanced JOINs and subqueries to unlock even more SQL power!
